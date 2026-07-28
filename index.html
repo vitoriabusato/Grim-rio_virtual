@@ -4,102 +4,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grimório Virtual</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121214;
+            color: #e1e1e6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            background-color: #202024;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: #ffffff;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.fantasia { background-color: #8257e5; }
+        .tab-btn.romance  { background-color: #ff5f8f; }
+        .tab-btn.suspense { background-color: #00b37e; }
+        .tab-btn.terror   { background-color: #e53e3e; }
+
+        .tab-btn:hover {
+            opacity: 0.8;
+        }
+
+        .tab-btn.active {
+            opacity: 1;
+            transform: scale(1.03);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .tab-content {
+            display: none;
+            background-color: #29292e;
+            padding: 20px;
+            border-radius: 8px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        #fantasia.tab-content { border-left: 5px solid #8257e5; }
+        #romance.tab-content  { border-left: 5px solid #ff5f8f; }
+        #suspense.tab-content { border-left: 5px solid #00b37e; }
+        #terror.tab-content   { border-left: 5px solid #e53e3e; }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Grimório Virtual</h1>
-    body {
-    background-color: #383E75;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #ffffff;
-    margin: 0;
-    padding: 20px;
-    text-align: center;
-    }
-    h1 {
-    color: #FBDADA;
-    font-size: 3rem;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-  /* Estilo dos botões das abas */
-   tabs {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-.tab-btn {
-    border: none;
-    padding: 12px 24px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 8px 8px 0 0;
-    transition: transform 0.2s, opacity 0.2s;
-    color: white;
-}
-.tab-btn:hover {
-    transform: translateY(-3px);
-    opacity: 0.9;
-}
-/* Cores específicas de cada aba */
-.fantasia { background-color: #8A2BE2; } /* Roxo */
-.romance { background-color: #FF69B4; }  /* Rosa */
-.suspense { background-color: #4682B4; } /* Azul Aço */
-.terror { background-color: #2F4F4F; }   /* Verde Escuro/Cinza */
+    <div class="container">
+        <h1>Grimório Virtual</h1>
 
-/* Estilo do conteúdo das abas */
-.tab-content {
-    display: none;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 30px;
-    border-radius: 8px;
-    max-width: 600px;
-    margin: 0 auto;
-    border-top: 4px solid #FBDADA;
-}
-/* Mostra a aba ativa */
-.tab-content.active {
-    display: block;
-}
-    <!-- Abas de Navegação -->
-    <div class="tabs">
-        <button class="tab-btn fantasia" onclick="openTab('fantasia')">Fantasias</button>
-        <button class="tab-btn romance" onclick="openTab('romance')">Romances</button>
-        <button class="tab-btn suspense" onclick="openTab('suspense')">Suspenses</button>
-        <button class="tab-btn terror" onclick="openTab('terror')">Terror</button>
-    </div>
+        <div class="tabs">
+            <button class="tab-btn fantasia active" onclick="openTab(event, 'fantasia')">Fantasias</button>
+            <button class="tab-btn romance" onclick="openTab(event, 'romance')">Romances</button>
+            <button class="tab-btn suspense" onclick="openTab(event, 'suspense')">Suspenses</button>
+            <button class="tab-btn terror" onclick="openTab(event, 'terror')">Terror</button>
+        </div>
 
-    <!-- Conteúdo das Abas -->
-    <div id="fantasia" class="tab-content active">
-        <h2>Área de Fantasia</h2>
-        <p>Seus livros de magia, dragões e mundos épicos ficam aqui.</p>
-    </div>
+        <div id="fantasia" class="tab-content active">
+            <h2>Área de Fantasia</h2>
+            <p>Seus livros de magia, dragões e mundos épicos ficam aqui.</p>
+        </div>
 
-    <div id="romance" class="tab-content">
-        <h2>Área de Romance</h2>
-        <p>Suas histórias de amor, dramas românticos e paixões ficam aqui.</p>
-    </div>
+        <div id="romance" class="tab-content">
+            <h2>Área de Romance</h2>
+            <p>Suas histórias de amor, dramas românticos e paixões ficam aqui.</p>
+        </div>
 
-    <div id="suspense" class="tab-content">
-        <h2>Área de Suspense</h2>
-        <p>Seus mistérios, investigações e reviravoltas ficam aqui.</p>
-    </div>
+        <div id="suspense" class="tab-content">
+            <h2>Área de Suspense</h2>
+            <p>Seus mistérios, investigações e reviravoltas ficam aqui.</p>
+        </div>
 
-    <div id="terror" class="tab-content">
-        <h2>Área de Terror</h2>
-        <p>Seus contos sombrios, monstros e histórias assustadoras ficam aqui.</p>
+        <div id="terror" class="tab-content">
+            <h2>Área de Terror</h2>
+            <p>Seus contos sombrios, monstros e histórias assustadoras ficam aqui.</p>
+        </div>
     </div>
 
     <script>
-        function openTab(tabId) {
-            // Esconde todos os conteúdos
+        function openTab(event, tabId) {
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => content.classList.remove('active'));
-           
-            // Mostra a aba clicada
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
             document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
         }
+    </script>
+</body>
+</html>
     
