@@ -9,7 +9,61 @@
 <body>
 
     <h1>Grimório Virtual</h1>
+    body {
+    background-color: #383E75;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    }
+    h1 {
+    color: #FBDADA;
+    font-size: 3rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+  /* Estilo dos botões das abas */
+   tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.tab-btn {
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+    transition: transform 0.2s, opacity 0.2s;
+    color: white;
+}
+.tab-btn:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+/* Cores específicas de cada aba */
+.fantasia { background-color: #8A2BE2; } /* Roxo */
+.romance { background-color: #FF69B4; }  /* Rosa */
+.suspense { background-color: #4682B4; } /* Azul Aço */
+.terror { background-color: #2F4F4F; }   /* Verde Escuro/Cinza */
 
+/* Estilo do conteúdo das abas */
+.tab-content {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    border-top: 4px solid #FBDADA;
+}
+/* Mostra a aba ativa */
+.tab-content.active {
+    display: block;
+}
     <!-- Abas de Navegação -->
     <div class="tabs">
         <button class="tab-btn fantasia" onclick="openTab('fantasia')">Fantasias</button>
@@ -48,67 +102,4 @@
             // Mostra a aba clicada
             document.getElementById(tabId).classList.add('active');
         }
-    </script>
-</body>
-</html>
-body {
-    background-color: #383E75;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #ffffff;
-    margin: 0;
-    padding: 20px;
-    text-align: center;
-}
-
-h1 {
-    color: #FBDADA;
-    font-size: 3rem;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-/* Estilo dos botões das abas */
-.tabs {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.tab-btn {
-    border: none;
-    padding: 12px 24px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 8px 8px 0 0;
-    transition: transform 0.2s, opacity 0.2s;
-    color: white;
-}
-
-.tab-btn:hover {
-    transform: translateY(-3px);
-    opacity: 0.9;
-}
-
-/* Cores específicas de cada aba */
-.fantasia { background-color: #8A2BE2; } /* Roxo */
-.romance { background-color: #FF69B4; }  /* Rosa */
-.suspense { background-color: #4682B4; } /* Azul Aço */
-.terror { background-color: #2F4F4F; }   /* Verde Escuro/Cinza */
-
-/* Estilo do conteúdo das abas */
-.tab-content {
-    display: none;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 30px;
-    border-radius: 8px;
-    max-width: 600px;
-    margin: 0 auto;
-    border-top: 4px solid #FBDADA;
-}
-
-/* Mostra a aba ativa */
-.tab-content.active {
-    display: block;
-}
+    
