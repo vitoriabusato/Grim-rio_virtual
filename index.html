@@ -1,54 +1,114 @@
-<!DOCTYPEh html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grimorio_virtual</title>
-    <style>
-    header {
-        background-color:(#FFFBF4);
-        color: #06043e;
-        text-align: center:
-        max: width 80px;;
-    }
-    main{
-        background-color:(#FFFBF4)
-        color #06043e;
-        
-    }
-
-    </style>
+    <title>Grimório Virtual</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1> Grimorio_virtual</h1>
-    <p> Bem vindos(as) ao nosso site, aqui temos resumos de livros de todos os genêros </p>
+
+    <h1>Grimório Virtual</h1>
+
+    <!-- Abas de Navegação -->
+    <div class="tabs">
+        <button class="tab-btn fantasia" onclick="openTab('fantasia')">Fantasias</button>
+        <button class="tab-btn romance" onclick="openTab('romance')">Romances</button>
+        <button class="tab-btn suspense" onclick="openTab('suspense')">Suspenses</button>
+        <button class="tab-btn terror" onclick="openTab('terror')">Terror</button>
+    </div>
+
+    <!-- Conteúdo das Abas -->
+    <div id="fantasia" class="tab-content active">
+        <h2>Área de Fantasia</h2>
+        <p>Seus livros de magia, dragões e mundos épicos ficam aqui.</p>
+    </div>
+
+    <div id="romance" class="tab-content">
+        <h2>Área de Romance</h2>
+        <p>Suas histórias de amor, dramas românticos e paixões ficam aqui.</p>
+    </div>
+
+    <div id="suspense" class="tab-content">
+        <h2>Área de Suspense</h2>
+        <p>Seus mistérios, investigações e reviravoltas ficam aqui.</p>
+    </div>
+
+    <div id="terror" class="tab-content">
+        <h2>Área de Terror</h2>
+        <p>Seus contos sombrios, monstros e histórias assustadoras ficam aqui.</p>
+    </div>
+
+    <script>
+        function openTab(tabId) {
+            // Esconde todos os conteúdos
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+           
+            // Mostra a aba clicada
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
 </body>
 </html>
-<html lang="pt-br"></html>
+body {
+    background-color: #383E75;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
 
-<!DOCTYPE html>
+h1 {
+    color: #FBDADA;
+    font-size: 3rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
 
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-</head>
-<body>
-<h1></h1>
-</body>
-</html>
+/* Estilo dos botões das abas */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
 
-<title></title>
+.tab-btn {
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+    transition: transform 0.2s, opacity 0.2s;
+    color: white;
+}
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+.tab-btn:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
 
-<h2> Sobre o que falamos </h2>
+/* Cores específicas de cada aba */
+.fantasia { background-color: #8A2BE2; } /* Roxo */
+.romance { background-color: #FF69B4; }  /* Rosa */
+.suspense { background-color: #4682B4; } /* Azul Aço */
+.terror { background-color: #2F4F4F; }   /* Verde Escuro/Cinza */
 
-<p> Aqui você pode encontar resumos de livros que você tenha vontade de ler </p>
+/* Estilo do conteúdo das abas */
+.tab-content {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    border-top: 4px solid #FBDADA;
+}
 
-
-<header>
-<h1>Meus queridinhos</h1>
-<p>Livros de fantasia</p>
-</header>
+/* Mostra a aba ativa */
+.tab-content.active {
+    display: block;
+}
