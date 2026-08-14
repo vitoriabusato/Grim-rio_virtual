@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grimório Virtual</title>
-    
+   
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,7 +18,7 @@
 
         .container {
             width: 100%;
-            max-width: 700px;
+            max-width: 750px;
             background-color: #202024;
             padding: 25px;
             border-radius: 12px;
@@ -83,6 +83,37 @@
             display: block;
         }
 
+        .livro-card {
+            display: flex;
+            gap: 20px;
+            background-color: #121214;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            align-items: center;
+        }
+
+        .livro-card img {
+            width: 110px;
+            height: 165px;
+            object-fit: cover;
+            border-radius: 6px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .livro-info h3 {
+            margin: 0;
+            color: #ffffff;
+        }
+
+        @media (max-width: 500px) {
+            .livro-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -109,22 +140,74 @@
 
         <div id="fantasia" class="tab-content active">
             <h2>Área de Fantasia</h2>
-            <p>Seus livros de magia, dragões e mundos épicos ficam aqui.</p>
+            
+            <div class="livro-card">
+                <img src="https://m.media-amazon.com/images/I/81P584P0O+L._AC_UF1000,1000_QL80_.jpg" alt="A Assistente do Vilão">
+                <div class="livro-info">
+                    <h3>A Assistente do Vilão</h3>
+                </div>
+            </div>
+
+            <div class="livro-card">
+                <img src="https://m.media-amazon.com/images/I/91eK6fS2XyL._AC_UF1000,1000_QL80_.jpg" alt="Caraval">
+                <div class="livro-info">
+                    <h3>Caraval</h3>
+                </div>
+            </div>
         </div>
 
         <div id="romance" class="tab-content">
             <h2>Área de Romance</h2>
-            <p>Suas histórias de amor, dramas românticos e paixões ficam aqui.</p>
+
+            <div class="livro-card">
+                <img src="https://m.media-amazon.com/images/I/81t3c990R2L._AC_UF1000,1000_QL80_.jpg" alt="Como Eu Era Antes de Você">
+                <div class="livro-info">
+                    <h3>Como Eu Era Antes de Você</h3>
+                </div>
+            </div>
+
+            <div class="livro-card">
+                <img src="https://m.media-amazon.com/images/I/81-NUnK+F1L._AC_UF1000,1000_QL80_.jpg" alt="A Hipótese do Amor">
+                <div class="livro-info">
+                    <h3>A Hipótese do Amor</h3>
+                </div>
+            </div>
         </div>
 
         <div id="suspense" class="tab-content">
             <h2>Área de Suspense</h2>
-            <p>Seus mistérios, investigações e reviravoltas ficam aqui.</p>
+
+            <div class="livro-card">
+                <img src="https://m.media-amazon.com/images/I/81P28N40kLL._AC_UF1000,1000_QL80_.jpg" alt="A Empregada">
+                <div class="livro-info">
+                    <h3>A Empregada</h3>
+                </div>
+            </div>
+
+            <div class="livro-card">
+                <img src="https://m.media-amazon.com/images/I/81h2kS4oT9L._AC_UF1000,1000_QL80_.jpg" alt="Jantar Secreto">
+                <div class="livro-info">
+                    <h3>Jantar Secreto</h3>
+                </div>
+            </div>
         </div>
 
         <div id="terror" class="tab-content">
             <h2>Área de Terror</h2>
-            <p>Seus contos sombrios, monstros e histórias assustadoras ficam aqui.</p>
+
+            <div class="livro-card">
+                <img src="https://m.media-amazon.com/images/I/71L54sB8KDL._AC_UF1000,1000_QL80_.jpg" alt="O Telefone Preto">
+                <div class="livro-info">
+                    <h3>O Telefone Preto</h3>
+                </div>
+            </div>
+
+            <div class="livro-card">
+                <img src="https://m.media-amazon.com/images/I/81IAn-v+V2L._AC_UF1000,1000_QL80_.jpg" alt="O Homem de Giz">
+                <div class="livro-info">
+                    <h3>O Homem de Giz</h3>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -142,4 +225,3 @@
     </script>
 </body>
 </html>
-    
